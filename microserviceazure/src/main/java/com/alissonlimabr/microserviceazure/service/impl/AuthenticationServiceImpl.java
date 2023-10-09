@@ -1,8 +1,8 @@
 package com.alissonlimabr.microserviceazure.service.impl;
 
-import com.alissonlimabr.microserviceazure.DTO.request.SignInRequest;
-import com.alissonlimabr.microserviceazure.DTO.request.SignUpRequest;
-import com.alissonlimabr.microserviceazure.DTO.response.JwtAuthenticationResponse;
+import com.alissonlimabr.microserviceazure.dto.request.SignInRequest;
+import com.alissonlimabr.microserviceazure.dto.request.SignUpRequest;
+import com.alissonlimabr.microserviceazure.dto.response.JwtAuthenticationResponse;
 import com.alissonlimabr.microserviceazure.model.Role;
 import com.alissonlimabr.microserviceazure.model.User;
 import com.alissonlimabr.microserviceazure.repository.UserRepository;

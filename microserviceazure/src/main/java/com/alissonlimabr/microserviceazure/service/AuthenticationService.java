@@ -1,8 +1,8 @@
 package com.alissonlimabr.microserviceazure.service;
 
-import com.alissonlimabr.microserviceazure.DTO.request.SignInRequest;
-import com.alissonlimabr.microserviceazure.DTO.request.SignUpRequest;
-import com.alissonlimabr.microserviceazure.DTO.response.JwtAuthenticationResponse;
+import com.alissonlimabr.microserviceazure.dto.request.SignInRequest;
+import com.alissonlimabr.microserviceazure.dto.request.SignUpRequest;
+import com.alissonlimabr.microserviceazure.dto.response.JwtAuthenticationResponse;
 
 public interface AuthenticationService{
 
