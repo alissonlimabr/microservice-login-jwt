@@ -1,4 +1,4 @@
-package com.alissonlimabr.microserviceazure.DTO.response;
+package com.alissonlimabr.microserviceazure.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
