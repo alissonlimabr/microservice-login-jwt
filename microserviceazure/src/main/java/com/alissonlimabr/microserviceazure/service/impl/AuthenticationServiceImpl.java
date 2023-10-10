@@ -9,6 +9,7 @@ import com.alissonlimabr.microserviceazure.repository.UserRepository;
 import com.alissonlimabr.microserviceazure.service.AuthenticationService;
 import com.alissonlimabr.microserviceazure.service.JwtService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -28,6 +30,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .role(Role.USER).build();
         userRepository.save(user);
         var jwt = jwtService.generateToken(user);
+        log.error("signup Authentication");
         return JwtAuthenticationResponse.builder().token(jwt).build();
     }
 
@@ -36,8 +39,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         var user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new IllegalArgumentException("Invalid email or password."));
+                .orElseThrow(() -> {
+                    log.error("Signin: invalid email or password");
+                    return new IllegalArgumentException("Invalid email or password.");
+                });
         var jwt = jwtService.generateToken(user);
+
         return JwtAuthenticationResponse.builder().token(jwt).build();
     }
 }
