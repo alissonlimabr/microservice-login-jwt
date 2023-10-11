@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microserviceazure-deployment
+  labels: #tag para deployment
+    app: microserviceazure
+spec:
+  strategy:
+    type: RollingUpdate #Estratégias de atualização
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+    replices: 2 #somente 2 réplicas
+    selector:
+      matchLabels:
+        app: microserviceazure
+      template:
+        metadata:
+          labels:
+            app: microserviceazure
+        spec:
+          containers:
+            - name: microserviceazure-container
+              image: alissonlimadev.azurecr.io/microserviceazure:latest #endereço da imagem
+              imagePullPolicy: Always
+              ports:
+                - containerPort: 8080
+              resources:
+                limits: #Limite de recursos
+                  cpu: 500m
+                  memory: 300Mi
+                requests:
+                  cpu: 500m
+                  memory: 300Mi
+        imagePullSecrets:
+          - name: regcred
