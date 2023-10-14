@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: microserviceazure
+  jpa:
+    database-plataform: org.hibernate.dialect.MySQL8Dialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  datasource:
+    # URL connection to database (spring-security is database name)
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+token:
+  signing:
+    key: ${JWT_KEY}
