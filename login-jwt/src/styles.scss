@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+$background-gradient: linear-gradient(to right, #da22ff, #9733ee);;
+
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $background-gradient;
+  box-sizing: border-box;
+  overflow: hidden;
+
+}
