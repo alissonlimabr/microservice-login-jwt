@@ -25,6 +25,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
     @Override
     public JwtAuthenticationResponse signup(SignUpRequest request) {
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new IllegalArgumentException("Email já existe");
+        }
         var user = User.builder().firstName(request.getFirstName()).lastName(request.getLastName())
                 .email(request.getEmail()).password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER).build();
@@ -40,8 +43,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> {
-                    log.error("Signin: invalid email or password");
-                    return new IllegalArgumentException("Invalid email or password.");
+                    log.error("Signin: E-mail ou senha inválidos");
+                    return new IllegalArgumentException("E-mail ou senha inválidos");
                 });
         var jwt = jwtService.generateToken(user);
 
