@@ -7,13 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SendEmailFormComponent } from './components/send-email-form/send-email-form.component';
 import { LoadingInterceptor } from './interceptors/loading-interceptor.interceptor';
 import { MaterialModule } from './material/material.module';
 
 @NgModule({
-  declarations: [AppComponent, SendEmailFormComponent, LoadingComponent],
+  declarations: [
+    AppComponent,
+    SendEmailFormComponent,
+    LoadingComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
