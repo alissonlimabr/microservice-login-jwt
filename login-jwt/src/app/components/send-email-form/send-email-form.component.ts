@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,12 +12,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SendEmailFormComponent {
   formSignUp: FormGroup;
-  formSendEmail: FormGroup;
+  formSignIn: FormGroup;
   selectedIndex: number = 0;
 
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
+    private router: Router,
     private toastr: ToastrService
   ) {
     this.formSignUp = this.fb.group({
@@ -34,7 +37,7 @@ export class SendEmailFormComponent {
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
 
-    this.formSendEmail = this.fb.group({
+    this.formSignIn = this.fb.group({
       email: [
         '',
         [
@@ -45,10 +48,11 @@ export class SendEmailFormComponent {
           ),
         ],
       ],
+      password: ['', [Validators.required]],
     });
   }
 
-  signInForm() {
+  signupForm() {
     if (this.formSignUp.invalid) return;
 
     this.userService.insert(this.formSignUp.value).subscribe({
@@ -56,6 +60,30 @@ export class SendEmailFormComponent {
         this.formSignUp.disable(); // desabilita o form após o submmit com sucesso.
         this.formSignUp.setErrors({ inserted: true }); //Invalida o form após o submmit com sucesso
         this.selectedIndex = 1; // Muda para a segunda tab
+        this.toastr.success('E-mail cadastrado com sucesso!', 'Sucesso');
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 400) {
+          this.toastr.error('E-mail já cadastrado!', 'Erro');
+        }
+      },
+    });
+  }
+
+  signinForm() {
+    if (this.formSignIn.invalid) return;
+
+    this.userService.login(this.formSignIn.value).subscribe({
+      complete: () => {
+        this.formSignIn.disable(); // desabilita o form após o submmit com sucesso.
+        this.formSignIn.setErrors({ inserted: true }); //Invalida o form após o submmit com sucesso
+        this.toastr.success('Login efetuado com sucesso!', 'Sucesso');
+        this.router.navigate(['/home']);
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 403) {
+          this.toastr.error('E-mail ou senha inválidos!', 'Erro');
+        }
       },
     });
   }

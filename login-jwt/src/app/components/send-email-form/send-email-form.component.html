@@ -3,7 +3,7 @@
     <app-loading></app-loading>
     <mat-tab-group class="tab-group" [selectedIndex]="selectedIndex">
       <mat-tab label="Cadastre-se">
-        <form (ngSubmit)="signInForm()" [formGroup]="formSignUp">
+        <form (ngSubmit)="signupForm()" [formGroup]="formSignUp">
           <mat-form-field appearance="outline">
             <mat-label>Nome</mat-label>
             <input
@@ -13,6 +13,11 @@
               formControlName="firstName"
             />
             <mat-icon matSuffix color="primary">person</mat-icon>
+            <mat-error
+              *ngIf="formSignUp.get('firstName')?.hasError('required')"
+            >
+              Nome é obrigatório
+            </mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Sobrenome</mat-label>
@@ -23,6 +28,9 @@
               formControlName="lastName"
             />
             <mat-icon matSuffix color="primary">person</mat-icon>
+            <mat-error *ngIf="formSignUp.get('lastName')?.hasError('required')">
+              Sobrenome é obrigatório
+            </mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>E-mail</mat-label>
@@ -48,12 +56,12 @@
             </mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Cadastre uma senha fictícia</mat-label>
+            <mat-label>Cadastre uma senha</mat-label>
             <input
               type="password"
               matInput
               formControlName="password"
-              placeholder="Insira uma senha fictícia"
+              placeholder="Insira uma senha"
               maxlength="35"
             />
             <mat-icon matSuffix color="primary">keygen</mat-icon>
@@ -78,8 +86,8 @@
           </div>
         </form>
       </mat-tab>
-      <mat-tab label="Redefinir senha">
-        <form [formGroup]="formSendEmail">
+      <mat-tab label="Login">
+        <form (ngSubmit)="signinForm()" [formGroup]="formSignIn">
           <mat-form-field appearance="outline">
             <mat-label>Insira seu e-mail cadastrado</mat-label>
             <input
@@ -88,13 +96,27 @@
               formControlName="email"
             />
             <mat-icon matSuffix color="primary">email</mat-icon>
-            <mat-error *ngIf="formSignUp.get('email')?.hasError('required')">
+            <mat-error *ngIf="formSignIn.get('email')?.hasError('required')">
               E-mail é obrigatório
             </mat-error>
             <mat-error
-              *ngIf="formSignUp.get('email')?.hasError('pattern' || 'email')"
+              *ngIf="formSignIn.get('email')?.hasError('pattern' || 'email')"
             >
               E-mail inválido
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Insira sua senha</mat-label>
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              placeholder="Insira sua senha"
+              maxlength="35"
+            />
+            <mat-icon matSuffix color="primary">keygen</mat-icon>
+            <mat-error *ngIf="formSignIn.get('password')?.hasError('required')">
+              Senha é obrigatória
             </mat-error>
           </mat-form-field>
           <div class="button-submit">
@@ -102,7 +124,7 @@
               mat-raised-button
               color="primary"
               type="submit"
-              [disabled]="formSendEmail.errors"
+              [disabled]="formSignIn.errors"
             >
               Login
             </button>
