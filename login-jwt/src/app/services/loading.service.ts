@@ -6,7 +6,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class LoadingService {
   constructor() {}
-
   private _loading = false;
   loadingStatus = new BehaviorSubject<boolean>(false);
 
