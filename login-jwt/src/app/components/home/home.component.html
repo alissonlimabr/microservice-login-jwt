@@ -1,0 +1,7 @@
+<div class="container" *ngIf="isToken">
+  <mat-card class="card">
+    <app-loading></app-loading>
+    <p>Você está autenticado!</p>
+    <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+  </mat-card>
+</div>
