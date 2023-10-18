@@ -35,7 +35,8 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
+        http.cors().and()
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(new AntPathRequestMatcher("/jwt/v1/auth/**"))
                         .permitAll().anyRequest().authenticated())
