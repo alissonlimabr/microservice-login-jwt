@@ -9,16 +9,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { SendEmailFormComponent } from './components/send-email-form/send-email-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { LoadingInterceptor } from './interceptors/loading-interceptor.interceptor';
 import { MaterialModule } from './material/material.module';
+import { SendEmailResetComponent } from './components/send-email-reset/send-email-reset.component';
+import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SendEmailFormComponent,
+    LoginFormComponent,
     LoadingComponent,
     HomeComponent,
+    SendEmailResetComponent,
+    ResetPasswordFormComponent,
   ],
   imports: [
     BrowserModule,
