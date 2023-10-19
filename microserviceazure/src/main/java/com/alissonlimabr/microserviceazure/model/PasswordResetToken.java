@@ -21,7 +21,7 @@ import lombok.Setter;
 @Table(name = "password_reset_tokens")
 public class PasswordResetToken {
 
-    private static final int EXPIRATION = 60 * 30;
+    private static final int EXPIRATION = 60 * 10;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,4 +52,3 @@ public class PasswordResetToken {
         return new Date(cal.getTime().getTime());
     }
 }
-
