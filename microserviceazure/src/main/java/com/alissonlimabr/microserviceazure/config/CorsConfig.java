@@ -16,7 +16,7 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(Arrays.asList("www.loginjwt.alissonlimadev.com", "loginjwt.alissonlimadev.com", "login-jwt-angular.vercel.app"));
+        config.setAllowedOrigins(Arrays.asList("https://www.loginjwt.alissonlimadev.com", "https://loginjwt.alissonlimadev.com", "https://login-jwt-angular.vercel.app"));
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
