@@ -16,6 +16,11 @@ $background-gradient: linear-gradient(to right, #da22ff, #9733ee);;
 
 .button-submit{
   display: grid;
+  margin-top: 5px;
+}
+.button-reset{
+  display: grid;
+  margin-top: 15px;
 }
 
 mat-card {

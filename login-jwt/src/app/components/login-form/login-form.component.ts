@@ -6,14 +6,14 @@ import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-send-email-form',
-  templateUrl: './send-email-form.component.html',
-  styleUrls: ['./send-email-form.component.scss'],
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss'],
 })
-export class SendEmailFormComponent {
+export class LoginFormComponent {
   formSignUp: FormGroup;
   formSignIn: FormGroup;
-  selectedIndex: number = 0;
+  selectedIndex: number = 1;
 
   constructor(
     private userService: UserService,
@@ -59,7 +59,7 @@ export class SendEmailFormComponent {
       complete: () => {
         this.formSignUp.disable(); // desabilita o form após o submmit com sucesso.
         this.formSignUp.setErrors({ inserted: true }); //Invalida o form após o submmit com sucesso
-        this.selectedIndex = 1; // Muda para a segunda tab
+        this.selectedIndex = 2; // Muda para a segunda tab
         this.toastr.success('E-mail cadastrado com sucesso!', 'Sucesso');
       },
       error: (error: HttpErrorResponse) => {
