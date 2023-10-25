@@ -8,7 +8,7 @@
 #
 ### 👉  Descrição do projeto
 
-<p> Esse serviço foi desenvolvido em Angular/TS e SpringBoot (JDK 17), Spring Security 6, JWT e conta com uma estilização feita em Angular Material. Além disso, o processo de Deploy foi feito usando pipeline multistage (primeiro no namespace de dev e depois, se autorizado, no namespace de prod) na Azure.
+<p> Esse serviço foi desenvolvido em Angular/TS e SpringBoot 3, Spring Security 6, JWT e conta com uma estilização feita em Angular Material. Além disso, o processo de Deploy foi feito usando pipeline multistage (primeiro no namespace de dev e depois, se autorizado, no namespace de prod) na Azure.
  </p>
 <p>A ideia é que o usuário autenticado receba um token de autorização que será armazenado no SessionStorage, persistindo a sessão até que ele feche o navegador ou até que o token tenha expirado.
 </p>
