@@ -52,3 +52,18 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [NGX-TOASTR](https://www.npmjs.com/package/ngx-toastr)
 - [Azure](https://azure.com/)
 - [Docker](https://hub.docker.com/)
+
+## 👨‍🎓 Autor
+
+<a href="https://github.com/alissonlimabr">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/101370736?s=400&u=00839cadc5eaa54e04b68f6efbc1582eedf4e080&v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Alisson Lima</b></sub></a> <a href="https://github.com/alissonlimabr" title="GitHub">🚀</a>
+ <br />
+
+[![Twitter Badge](https://img.shields.io/badge/-@amlxd5-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/amlxd5)](https://twitter.com/amlxd5) [![Linkedin Badge](https://img.shields.io/badge/-Alisson-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/alisson-ml/)](https://www.linkedin.com/in/alisson-ml/) 
+[![Gmail Badge](https://img.shields.io/badge/-amlxd5@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:amlxd5@gmail.com)](mailto:amlxd5@gmail.com)
+
+## 📝 Licença
+
+Esse projeto é licenciado pelo [MIT](./LICENSE).
