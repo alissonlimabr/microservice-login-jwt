@@ -8,13 +8,13 @@
 #
 ### 👉  Descrição do projeto
 
-<p> Esse serviço foi desenvolvido em Angular/TS e SpringBoot 3, Spring Security 6, JWT e conta com uma estilização feita em Angular Material. Além disso, o processo de Deploy foi feito usando pipeline multistage (primeiro no namespace de dev e depois, se autorizado, no namespace de prod) na Azure.
+<p> Esse serviço foi desenvolvido em Angular/TS e Spring Boot 3, Spring Security 6, JWT e conta com uma estilização feita em Angular Material. Além disso, o processo de Deploy foi feito usando pipeline multistage (primeiro no namespace de dev e depois, se autorizado, no namespace de prod) na Azure.
  </p>
 <p>A ideia é que o usuário autenticado receba um token de autorização que será armazenado no SessionStorage, persistindo a sessão até que ele feche o navegador ou até que o token tenha expirado.
 </p>
 <p> Também adicionei um sistema de redefinição de senha através do e-mail, de modo que o usuário possa alterar sua senha de acesso quando necessário.</p>
 
-<p> Alguns Design Patterns foram utilizados nesse projeto, especificamente na API em springboot. Gostaria de destacar o padrão MVC, DTO e Repository.</p>
+<p> Alguns Design Patterns foram utilizados nesse projeto, especificamente na API em spring Boot. Gostaria de destacar o padrão MVC, DTO e Repository.</p>
 
 <p> Sinta-se à vontade para conferir o código. Caso queira baixá-lo, certifique-se de configurar corretamente suas variáveis de ambiente para a correta compilação e execução do código. </p>
 
